@@ -1,0 +1,94 @@
+{% extends "headerfooter.html" %}
+{% block content %}
+
+
+    <!-- //banner-->
+    <!--/login -->
+    <section class="banner-bottom py-5">
+        <div class="container">
+            <!---728x90--->
+
+            <div class="content-grid">
+                <div class="text-center icon">
+                    {% for x in usr %}
+                    <span class="fa fa-user-circle-o"></span>
+                    <p>{{x.name}}</p>
+                </div>
+                <div class="content-bottom">
+                 
+   
+                    <form action="/forgotpasschange/" method="POST">
+                        {% csrf_token %}
+                        
+                        <!-- <div class="field-group">
+
+                            <div class="content-input-field">
+                                <label for="inputState" class="input__label">email</label>
+                                <input name="email" id="text1" type="email" value="" placeholder="User Email" required="">
+                            </div>
+                        </div>
+                        -->
+                        <input type="hidden" name="uid" value="{{x.id}}">
+                        {% endfor %}
+                        <div class="field-group">
+                            <div class="content-input-field">
+                                <label for="inputState" class="input__label">password</label>
+                                <input name="pass" id="myInput" type="text" placeholder="Password"  value="">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <div class="content-input-field">
+                                <label for="inputState" class="input__label"> New password</label>
+                                <input name="conpass" id="myInput" type="text" placeholder="Password" value="">
+                            </div>
+                        </div>
+                        <div class="content-input-field">
+                            <button type="submit" class="btn">Change Password</button>
+                        </div>
+                    
+                        <div class="list-login-bottom text-center mt-lg-5 mt-4">
+                            <!-- <button type="submit">Change Password</button></td> -->
+                           
+
+
+
+                        </div>
+                    </form>
+                </div>
+            </div> 
+            <!---728x90--->
+        </div>
+    </section>
+    <!-- /login -->
+    <!--/shipping-->
+    <section class="shipping-wthree">
+        <div class="shiopping-grids d-lg-flex">
+            <div class="col-lg-4 shiopping-w3pvt-gd text-center">
+                <div class="icon-gd"><span class="fa fa-truck" aria-hidden="true"></span>
+                </div>
+                <div class="icon-gd-info">
+                    <h3>FREE SHIPPING</h3>
+                    <p>On all order over $2000</p>
+                </div>
+            </div>
+            <div class="col-lg-4 shiopping-w3pvt-gd sec text-center">
+                <div class="icon-gd"><span class="fa fa-bullhorn" aria-hidden="true"></span></div>
+                <div class="icon-gd-info">
+                    <h3>FREE RETURN</h3>
+                    <p>On 1st exchange in 30 days</p>
+                </div>
+            </div>
+            <div class="col-lg-4 shiopping-w3pvt-gd text-center">
+                <div class="icon-gd"> <span class="fa fa-gift" aria-hidden="true"></span></div>
+                <div class="icon-gd-info">
+                    <h3>MEMBER DISCOUNT</h3>
+                    <p>Register &amp; save up to $29%</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!--//shipping-->
+    
+{% endblock %}

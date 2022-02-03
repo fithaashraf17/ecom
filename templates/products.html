@@ -1,0 +1,82 @@
+{% extends "headerfooter.html" %}
+{% block content %}
+    <section class="banner-bottom py-5">
+        <div class="container py-5">
+            <!---728x90--->
+
+            <h3 class="title-wthree mb-lg-5 mb-4 text-center">products</h3>
+            {% for x in usr %}
+            <!---728x90--->
+            <form action="/updatepro/?id={{x.id}}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="field-group">
+
+                    <div class="content-input-field">
+                        <input name="productname" id="text1" type="text" value="{{x.name}}" placeholder="Name" required>
+
+                    </div>
+                </div>
+                <div class="field-group">
+
+                    <div class="content-input-field">
+                    
+                        <input name="image"  type="file" style="display:none ;" value=""  id="check">
+                        <img src={{x.image.url}}> 
+                    </div>
+                    <input name="imgupdate" type="radio" value="Yes" placeholder="" required id="y" onclick="checking()"> Yes
+                    <input name="imgupdate" type="radio" value="No" placeholder="" required id="n" onclick="checking()" checked> No
+
+                </div>
+                <script>
+                    function checking(){
+                        var x = document.getElementById('y').checked;
+                        var z =document.getElementById('n').value;
+
+                        if (x != ''){
+                        document.getElementById('check').style.display='block';
+
+                        }
+                        else if (x == ''){
+                        document.getElementById('check').style.display='none';
+
+                        }
+                        
+                        // if(document.getElementById('n').checked){
+                        //     
+                        
+                         
+                    }
+
+
+                </script>
+                
+                <div class="field-group">
+
+                    <div class="content-input-field">
+                        <input name="price" type="text" value="{{x.price}}" placeholder="price" required >
+                    </div>
+                </div>
+                <div class="field-group">
+
+                    <div class="content-input-field">
+                        <input name="description" type="text" value="{{x.description}}" placeholder="description" required> 
+                    </div>
+                </div>
+                <!-- <div class="field-group">
+
+                    <div class="content-input-field">
+                       
+
+                    </div>
+                </div> -->
+
+                <div class="content-input-field">
+                    <button type="submit" class="btn">update</button>
+                </div>
+                {% endfor %}
+
+            </form>
+                {% endblock %}
+                
+                
+                

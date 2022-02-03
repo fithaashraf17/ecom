@@ -1,0 +1,59 @@
+
+{% extends "headerfooter.html" %}
+{% block content %}
+
+    <!-- //banner-->
+
+    <!--/contact -->
+    <!-- <section class="banner-bottom py-5">
+        <div class="container py-md-5">
+            <!---728x90--->
+
+            
+    <table style="width: 100%" >
+        <tr>
+            <th>#</th>
+
+            <th>name</th>
+            <th>image</th>
+            <th>price</th>
+            <th>description</th>
+            <th>del</th>
+            <th>edit</th>
+            
+
+
+            
+            
+
+        </tr>
+        <tr>
+            {% for x in reg %}
+            <td>{{forloop.counter}}</td>
+
+            <td>{{x.name}}</td>
+            <td>{{x.price}}</td>
+            <td>{{x.description}}</td>
+            <td><img src="{{x.image.url}}" width="200px" height="150px"></td>
+            <td><a href="/deletepro/?id={{x.id}}">del</a></td>
+            <td><a href="/editpro/?id={{x.id}}">edit</a></td>
+            
+
+
+        
+           
+               
+                <!-- <a href="/status/?id={{x.id}}">rejected -->
+         
+            <!-- <td><input type="submit" value="accept" name="accept"></td> -->
+            
+
+            
+        </tr>
+        {% endfor %}
+    </table>
+    
+   
+{% endblock %}
+
+    
